@@ -8,16 +8,16 @@
 
 1. 카카오톡에서 중요한 과거 대화가 실제로 열리는지 확인합니다.
 2. 카카오톡 메뉴에서 **종료**를 눌러 완전히 닫습니다.
-3. 외장 USB/SSD가 연결된 상태에서 아래 명령을 실행합니다. `외장디스크명`은 Finder에 표시된 실제 이름으로 바꾸세요.
+3. 이 저장소 폴더에서 외장 USB/SSD가 연결된 상태로 아래 명령을 실행합니다. `외장디스크명`은 Finder에 표시된 실제 이름으로 바꾸세요.
 
 ```sh
-python3 "/Users/valternt/Documents/사무실 자동화 프로젝트/카카오톡_맥_보관도구/kakao_mac_local.py" backup "/Volumes/외장디스크명/KakaoTalkMac-before-format.zip"
+python3 kakao_mac_local.py backup "/Volumes/외장디스크명/KakaoTalkMac-before-format.zip"
 ```
 
 4. 생성된 ZIP, `.zip.sha256`, 스크립트 사본이 외장 디스크에 있는지 확인합니다. 외장 디스크에서 다음 명령으로 ZIP을 검증합니다.
 
 ```sh
-python3 "/Users/valternt/Documents/사무실 자동화 프로젝트/카카오톡_맥_보관도구/kakao_mac_local.py" verify "/Volumes/외장디스크명/KakaoTalkMac-before-format.zip"
+python3 kakao_mac_local.py verify "/Volumes/외장디스크명/KakaoTalkMac-before-format.zip"
 ```
 
 **ZIP 하나만 내장 디스크에 두고 포맷하면 함께 지워집니다.** 검증이 끝나도 포맷 전 기존 카카오톡 앱에서 대화를 계속 볼 수 있는지 마지막으로 확인하세요.
@@ -26,10 +26,10 @@ python3 "/Users/valternt/Documents/사무실 자동화 프로젝트/카카오톡
 
 1. **같은 Mac**에 macOS와 공식 맥용 카카오톡을 설치합니다.
 2. 카카오톡을 한 번 실행해 앱 저장소를 생성하되, **로그인하지 않고 종료**합니다.
-3. 외장 디스크의 스크립트를 사용해 복원합니다. 예시는 스크립트도 외장 디스크에 복사한 경우입니다.
+3. GitHub에서 이 저장소를 다시 내려받고, 저장소 폴더에서 외장 디스크의 ZIP을 사용해 복원합니다.
 
 ```sh
-python3 "/Volumes/외장디스크명/kakao_mac_local.py" restore "/Volumes/외장디스크명/KakaoTalkMac-before-format.zip"
+python3 kakao_mac_local.py restore "/Volumes/외장디스크명/KakaoTalkMac-before-format.zip"
 ```
 
 4. Mac을 재시동하고 카카오톡을 열어 기존 카카오계정으로 로그인한 뒤 채팅방의 과거 대화와 새 메시지 수신을 확인합니다.
